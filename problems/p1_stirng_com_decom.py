@@ -76,3 +76,33 @@ compressed = com_decom_obj.compress_string(original)
 print("Compressed:", compressed)  # Output: a3b3c2d1 || a7b9c2d19
 decompressed = com_decom_obj.decompress_string(compressed)
 print("Decompressed:", decompressed)  # Output: aaabbbccd || aaaaaaabbbbbbbbbccddddddddddddddddddd
+
+
+"""
+    ⚡ How to Solve Quickly in Interview
+        Compression:
+            Walk through string, count consecutive same chars.
+            
+            Append char + count.
+        
+        Decompression:
+            Read character.
+            
+            Read digits after it (multi-digit possible).
+            
+            Expand character.
+    
+    ============
+    
+    🎓 How to Master This Type
+        Practice string traversal carefully.
+        
+        Remember the pattern:
+        "[char][number] → expand"
+        
+        Watch for edge cases:
+        
+        Single character.
+        
+        Large counts (more than 9).
+"""
