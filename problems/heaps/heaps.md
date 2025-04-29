@@ -212,3 +212,33 @@ Heap (Tree Shape) → Stored as Array → Supports O(log n) push/pop → Always 
 - Min/Max heap = Just flip the comparison.
 - Priority Queue = Heap with smart priorities.
 - **Heap is NOT fully sorted** — only partial ordering.
+
+
+---
+
+You're asking for one of the most **critical heap cheat sheets** in interviews — perfect for fast recall and practice!
+
+---
+
+# 🧠 Common Problems Using Heaps — Full Guide
+
+| **Problem** | **Without Heap (Slow)** | **With Heap (Optimized)** |
+|-------------|--------------------------|-----------------------------|
+| Find K largest elements | Sort and take last K → `O(n log n)` | Min-heap of size K → `O(n log K)` |
+| Find K smallest elements | Sort and take first K → `O(n log n)` | Max-heap of size K → `O(n log K)` |
+| Merge K sorted lists | Merge then sort all → `O(n log n)` | Min-heap of K heads → `O(N log K)` |
+| Find median from stream | Sort after every insert → `O(n log n)` | Two heaps (Max-heap + Min-heap) |
+| Top K frequent elements | Count, sort by freq → `O(n log n)` | Min-heap of K freq → `O(n log K)` |
+| Kth largest/smallest | Full sort → `O(n log n)` | Min/Max-heap → `O(n log K)` |
+
+
+# 📑 Final Cheat Sheet Summary
+
+| Problem Type | Heap Type | Heap Size | Complexity | Notes |
+|--------------|-----------|-----------|------------|-------|
+| K largest | Min-Heap | K | O(n log K) | Keep top K |
+| K smallest | Max-Heap (use `-x`) | K | O(n log K) | Keep bottom K |
+| Merge K lists | Min-Heap | K | O(N log K) | Track (val, list#, index) |
+| Stream Median | Max + Min Heaps | ≈ N/2 each | O(log N) per add | Maintain balance |
+| Top K frequent | Min-Heap | K | O(n log K) | Use frequency map |
+| Kth largest | Min-Heap | K | O(n log K) | Same as K largest |
