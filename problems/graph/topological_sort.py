@@ -69,12 +69,8 @@ class TopologicalSort:
     """
 
     def __init__(self):
-        # Adjacency list: key = library, value = list of libraries depending on it
-        self.graph = defaultdict(list)
-        # Indegree: key = library, value = number of libraries it depends on
-        #   i.e., how many prerequisites still remaining
-        self.indegree = defaultdict(int)
-        # Track all libraries even if they have no outgoing or incoming edges
+        self.graph = defaultdict(list)  # Adjacency list: key = library, value = list of libraries depending on it
+        self.indegree = defaultdict(int)  # Indegree: key = library, value = number of libraries it depends on
         self.libraries = set()  # all libraries
 
     def build_graph(self, dependencies: Dict):
@@ -95,7 +91,8 @@ class TopologicalSort:
 
     def get_zero_indegree_nodes(self) -> deque:
         """
-            Initializes the queue with nodes that have 0 indegree, meaning they have no dependencies and can be installed first.
+            Initializes the queue with nodes that have 0 indegree,
+                meaning they have no dependencies and can be installed first.
         """
         queue = deque()
         for lib in self.libraries:
@@ -112,7 +109,6 @@ class TopologicalSort:
         self.build_graph(dependencies=dependencies)
         # Get the zero degree nodes
         queue = self.get_zero_indegree_nodes()
-        print(f"queue: {queue}, libs: {self.libraries}, indegrees: {self.indegree}, graph: {self.graph}")
 
         installation_order = []
         while queue:
