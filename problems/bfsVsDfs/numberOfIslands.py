@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         """
@@ -47,10 +48,10 @@ class Solution:
             grid[r][c] = '0'
 
             # 4. Visit all 4 adjacent neighbors (up, down, left, right)
-            dfs(r + 1, c)   # down
-            dfs(r - 1, c)   # up
-            dfs(r, c + 1)   # right
-            dfs(r, c - 1)   # left
+            dfs(r + 1, c)  # down
+            dfs(r - 1, c)  # up
+            dfs(r, c + 1)  # right
+            dfs(r, c - 1)  # left
 
         # -------------------------------------------------------------
 
@@ -60,7 +61,7 @@ class Solution:
 
                 # If we find a '1', that means a NEW island
                 if grid[r][c] == '1':
-                    islands += 1      # Count this new island
+                    islands += 1  # Count this new island
 
                     # Run DFS to sink the entire island
                     dfs(r, c)
@@ -71,11 +72,11 @@ class Solution:
 # Example Test ----------------------------------------------
 if __name__ == "__main__":
     grid = [
-        ["1","1","0","0","0"],
-        ["1","1","0","0","0"],
-        ["0","0","1","0","0"],
-        ["0","0","0","1","1"]
+        ["1", "1", "0", "0", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "1", "0", "0"],
+        ["0", "0", "0", "1", "1"]
     ]
 
     sol = Solution()
-    print(sol.numIslands(grid))   # Output: 3
+    print(sol.numIslands(grid))  # Output: 3
