@@ -16,23 +16,24 @@ def reverse_parentheses(s):
     for ch in s:
         if ch != ")":
             stack.append(ch)
-            print(f"for char:{ch}, stack in if condition: {stack}")
+            print(f"[if] for char:{ch}, stack in if condition: {stack}")
         else:
-            temp = []  # stores the reversed substring and anything after it
+            temp = []
             # Pop until "("
             while stack and stack[-1] != "(":
                 temp.append(stack.pop())
-            print(f"for char:{ch}, temp after while loop: {temp}")
-            print(f"for char:{ch}, stack outside while loop: {stack}")
+            print(f"[else] for char:{ch}, temp after while loop: {temp}")
+            print(f"[else] for char:{ch}, stack after while loop: {stack}")
             stack.pop()  # remove "("
             # Push reversed substring back
             for x in temp:
                 stack.append(x)
+            print(f"[else] Final Stack for char: {ch}: {stack}")
 
     return "".join(stack)
 
 
 # Test
-print("Reverse parentheses:", reverse_parentheses("abc(def)ghi"), "\n\n\n")  # "iloveu"
+print("Reverse parentheses:", reverse_parentheses("abc(def)ghi"), "\n\n\n")  # "abcfedghi"
 print("Reverse parentheses:", reverse_parentheses("(u(love)i)"), "\n\n\n")  # "iloveu"
 print("Reverse parentheses:", reverse_parentheses("a(bc(de)f)g"), "\n\n\n")  # "afedcbg"
