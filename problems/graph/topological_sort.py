@@ -138,3 +138,4 @@ t_dependencies = {
 topo_sort_obj = TopologicalSort()
 res_installation_order = topo_sort_obj.topological_sort_dag(dependencies=t_dependencies)
 print(f"The installation order for deps: {json.dumps(t_dependencies)} is: {res_installation_order}")
+
