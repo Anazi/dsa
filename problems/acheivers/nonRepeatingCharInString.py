@@ -14,22 +14,16 @@ Characters that occur once
 And among those, the one that appears earliest
 
 So you need two things at the same time:
-
     a. Count of characters
-
     b. Original order information
 
 2️⃣ Why this is a Strings + Hashing problem
+    Strings alone → you can traverse characters
+    But checking frequency efficiently requires constant-time lookup
 
-Strings alone → you can traverse characters
-
-But checking frequency efficiently requires constant-time lookup
-
-Hash maps give:
-
-char → count
-
-O(1) updates and reads
+    Hash maps give:
+        char → count
+        O(1) updates and reads
 
 👉 Arrays alone fail unless the alphabet is strictly fixed (e.g., ASCII 26 lowercase letters).
 
