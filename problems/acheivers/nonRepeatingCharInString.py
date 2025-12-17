@@ -42,6 +42,8 @@ aabcbcdee
     e: 1+1
 }
 """
+from collections import Counter
+
 
 def non_repeating_char_in_a_string(s: str):
     char_counter = {}
@@ -51,11 +53,27 @@ def non_repeating_char_in_a_string(s: str):
         else:
             char_counter[char] = 1
 
-    for k,v in char_counter.items():
-        if v == 1:
-            return k
-        
+    for char in s:
+        if char_counter[char] == 1:
+            return char
 
-t_str = aabcbcdee
+
+t_str = "aabcbcdee"
 print(f"non_repeating_char_in_a_string for string:{t_str} is `{non_repeating_char_in_a_string(t_str)}`")
 
+
+def first_non_repeating_char(s: str):
+    freq = Counter(s)
+    print(f"freq: {freq}")
+
+    for ch in s:
+        if freq[ch] == 1:
+            return ch
+
+    return None
+
+
+# Tests
+print(first_non_repeating_char("leetcode"))     # l
+print(first_non_repeating_char("loveleetcode")) # v
+print(first_non_repeating_char("aabb"))         # None
